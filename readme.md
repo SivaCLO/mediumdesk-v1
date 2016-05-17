@@ -1,8 +1,5 @@
-<img src="static/Icon.png" width="60">
-
-# Desktop App for Medium - MediumDesk
-
-> Developed by Medium enthusiasts
+# <img src="static/Icon.png" width="200"> Desktop App for Medium - MediumDesk
+Developed by Medium enthusiasts
 
 <br>
 [![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
