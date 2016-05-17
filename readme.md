@@ -1,4 +1,5 @@
-# <img src="static/Icon.png" width="200"> Desktop App for Medium - MediumDesk
+<img src="static/Icon.png" width="200">
+# Desktop App for Medium - MediumDesk
 Developed by Medium enthusiasts
 
 <br>
