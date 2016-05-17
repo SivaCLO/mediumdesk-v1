@@ -21,11 +21,8 @@ ipc.on('new-conversation', () => {
 });
 
 ipc.on('log-out', () => {
-	// create the menu for the below
-	document.querySelector('._30yy._2fug._p').click();
-
-	const nodes = document.querySelectorAll('._54nq._2i-c._558b._2n_z li:last-child a');
-	nodes[nodes.length - 1].click();
+	document.querySelector('.avatar-image').click();
+	document.querySelector('.popover div ul li:last-child a').click()
 });
 
 ipc.on('find', () => {
