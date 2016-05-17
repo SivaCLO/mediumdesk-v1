@@ -1,18 +1,32 @@
 {
+  "name": "mediumdesk",
+  "productName": "MediumDesk",
   "version": "0.1.0",
+  "description": "Desktop App for Medium developed by Medium enthusiasts",
   "license": "MIT",
+  "repository": "sivragav/mediumdesk",
   "author": {
     "name": "Sivaprakash Ragavan",
+    "email": "mediumdesk@sivragav.com",
     "url": "medium.com/desktop-apps"
   },
   "scripts": {
     "test": "xo",
     "start": "electron .",
+    "build": "npm run build:osx && npm run build:linux && npm run build:windows",
+    "build:osx": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=darwin --arch=x64 --icon=static/Icon.icns --app-bundle-id=com.sivragav.mediumdesk --sign='Developer ID Application: Sivaprakash Ragavan (7S2WW76HXL)' --app-version=$npm_package_version && cd dist/MediumDesk-darwin-x64 && zip -ryXq9 ../MediumDesk-osx-${npm_package_version}.zip MediumDesk.app",
+    "build:linux": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=x64 --app-bundle-id=com.sivragav.mediumdesk --app-version=$npm_package_version && cd dist/MediumDesk-linux-x64/ && zip -ryq9 ../MediumDesk-linux-${npm_package_version}.zip *",
+    "build:windows": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=ia32 --icon=static/Icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/MediumDesk-win32-ia32 && zip -ryq9 ../MediumDesk-windows-${npm_package_version}.zip *"
   },
   "dependencies": {
+    "electron-debug": "^1.0.0",
+    "electron-dl": "^1.0.0",
+    "electron-osx-appearance": "^0.1.1"
   },
   "devDependencies": {
     "electron-packager": "^7.0.0",
+    "electron-prebuilt": "^1.0.2",
+    "xo": "*"
   },
   "xo": {
     "esnext": true,
