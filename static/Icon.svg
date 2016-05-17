@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="750px" height="750px" viewBox="0 0 750 750" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 3.7.2 (28276) - http://www.bohemiancoding.com/sketch -->
+    <title>Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="0.251348437" y="450.259259" width="680.853342" height="82.962963"></rect>
+        <mask id="mask-2" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="680.853342" height="82.962963" fill="white">
+            <use xlink:href="#path-1"></use>
+        </mask>
+        <ellipse id="path-3" cx="338.703704" cy="491.703704" rx="23.7037037" ry="23.7037037"></ellipse>
+        <mask id="mask-4" maskContentUnits="userSpaceOnUse" maskUnits="objectBoundingBox" x="0" y="0" width="47.4074074" height="47.4074074" fill="white">
+            <use xlink:href="#path-3"></use>
+        </mask>
+    </defs>
+    <g id="Medium-Desktop-Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon">
+            <g id="Desktop" transform="translate(34.000000, 91.000000)">
+                <polygon id="Rectangle-551" stroke="#A9C7D8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="#A9C7D8" points="279.740741 521.37037 398.259259 521.37037 433.814815 568.777778 244.185185 568.777778"></polygon>
+                <rect id="Rectangle-549" stroke-opacity="0.2" stroke="#32FC8D" stroke-width="2" fill-opacity="0.2" fill="#32FC8D" x="0.251348437" y="5.68434189e-14" width="680.853342" height="450.259259" rx="20"></rect>
+                <use id="Rectangle-550" stroke="#DBEEF7" mask="url(#mask-2)" stroke-width="4" fill="#DBEEF7" xlink:href="#path-1"></use>
+                <use id="Oval-543" stroke="#A9C7D8" mask="url(#mask-4)" stroke-width="4" xlink:href="#path-3"></use>
+            </g>
+            <g id="Medium" transform="translate(168.000000, 140.000000)">
+                <path d="M280.492938,0.405863855 C278.38799,-0.645493288 276.666667,0.41726068 276.666667,2.76785592 L276.666667,291.842634 L403.38,355.132054 C409.693419,358.286126 414.858814,355.096439 414.858814,348.044654 L414.858814,69.7797646 C414.858814,68.3936258 414.07445,67.1257289 412.833729,66.5060266 L280.492938,0.405863855" id="Fill-6" fill="#32FC8D"></path>
+                <path d="M138.333333,224.306644 L274.283625,3.62136577 C275.517216,1.61979831 278.24823,0.84196498 280.353179,1.89332212 L411.675722,67.4849015 C413.311478,68.3011991 413.894759,70.3440801 412.936409,71.8997467 L276.525481,293.330092 L138.333333,224.306644" id="Fill-7" fill="#0BE370"></path>
+                <path d="M15.8883269,7.57230788 C7.46995918,3.36830391 4.6177255,6.47963724 9.55066365,14.4873317 L138.775389,224.253026 L276.967536,293.276475 L139.668138,70.4015817 C139.084856,69.452796 138.246299,68.6877841 137.25087,68.189173 L15.8883269,7.57230788" id="Fill-9" fill="#14C767"></path>
+                <path d="M138.193574,349.389089 C138.193574,356.440874 133.026753,359.630561 126.713333,356.476489 L7.65396907,297.009279 C3.44407216,294.906565 0,289.34064 0,284.63945 L0,8.3861006 C0,3.68491012 3.44407216,1.55797758 7.65396907,3.66069187 L136.489364,68.0114419 C137.533282,68.5328466 138.193574,69.5984498 138.193574,70.7651998 L138.193574,349.389089" id="Fill-10" fill="#00AB6C"></path>
+            </g>
+        </g>
+    </g>
+</svg>
