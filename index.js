@@ -5,6 +5,7 @@ const electron = require('electron');
 const app = electron.app;
 const menu = require('./menu');
 const storage = require('./storage');
+const navigate = require('./navigate');
 const tray = require('./tray');
 
 require('electron-debug')();
@@ -78,6 +79,9 @@ app.on('ready', () => {
 		page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'));
 		mainWindow.show();
 	});
+
+	page.on('did-navigate', navigate.onNavigate);
+	page.on('did-navigate-in-page', navigate.onNavigate);
 
 	page.on('new-window', (e, url) => {
 		e.preventDefault();
