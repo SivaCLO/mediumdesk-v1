@@ -58,6 +58,17 @@ ${process.platform} ${process.arch} ${os.release()}`;
 	}
 ];
 
+const viewSubmenu = [
+	{
+		label: `Reload`,
+		accelerator: 'CmdOrCtrl+R',
+		click() {
+			const win = BrowserWindow.getAllWindows()[0];
+			win.reload();
+		}
+	}
+];
+
 if (process.platform !== 'darwin') {
 	helpSubmenu.push({
 		type: 'separator'
@@ -256,6 +267,10 @@ const darwinTpl = [
 		]
 	},
 	{
+		label: 'View',
+		submenu: viewSubmenu
+	},
+	{
 		label: 'Window',
 		role: 'window',
 		submenu: [
@@ -407,6 +422,10 @@ const otherTpl = [
 				role: 'paste'
 			}
 		]
+	},
+	{
+		label: 'View',
+		submenu: viewSubmenu
 	},
 	{
 		label: 'Help',
