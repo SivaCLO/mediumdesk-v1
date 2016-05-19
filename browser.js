@@ -3,12 +3,7 @@ const electron = require('electron');
 const osxAppearance = require('electron-osx-appearance');
 const ipc = electron.ipcRenderer;
 const {BrowserWindow} = electron.remote;
-
 const storage = electron.remote.require('./storage');
-
-const listSelector = 'div[role="navigation"] > ul > li';
-const conversationSelector = '._4u-c._1wfr > ._5f0v.uiScrollableArea';
-const selectedConversationSelector = '._5l-3._1ht1._1ht2';
 
 ipc.on('open-new', () => {
 	clickAvatarMenuItem(0);
@@ -47,7 +42,7 @@ ipc.on('log-out', () => {
 });
 
 function openAvatarMenu() {
-	document.querySelector('.avatar-image').click();
+	document.querySelector('.metabar-block--right .avatar-image').click();
 }
 
 function clickAvatarMenuItem(index) {
