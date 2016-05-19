@@ -22,6 +22,10 @@ function openURL(url) {
 	win.loadURL(url);
 }
 
+function openHome() {
+	openURL('https://medium.com/');
+}
+
 function openSearch() {
 	openURL('https://medium.com/search');
 }
@@ -155,14 +159,11 @@ const darwinTpl = [
 				type: 'separator'
 			},
 			{
-				label: 'Search Medium',
+				label: 'Home',
 				accelerator: 'Cmd+0',
 				click() {
-					openSearch();
+					openHome();
 				}
-			},
-			{
-				type: 'separator'
 			},
 			{
 				label: 'Drafts',
@@ -263,6 +264,16 @@ const darwinTpl = [
 				label: 'Select All',
 				accelerator: 'Cmd+A',
 				role: 'selectall'
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Search Medium',
+				accelerator: 'Cmd+F',
+				click() {
+					openSearch();
+				}
 			}
 		]
 	},
@@ -323,14 +334,11 @@ const otherTpl = [
 				type: 'separator'
 			},
 			{
-				label: 'Search Medium',
+				label: 'Home',
 				accelerator: 'Ctrl+0',
 				click() {
-					openSearch();
+					openHome();
 				}
-			},
-			{
-				type: 'separator'
 			},
 			{
 				label: 'Drafts',
@@ -420,6 +428,16 @@ const otherTpl = [
 				label: 'Paste',
 				accelerator: 'Ctrl+V',
 				role: 'paste'
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Search Medium',
+				accelerator: 'Ctrl+F',
+				click() {
+					openSearch();
+				}
 			}
 		]
 	},
