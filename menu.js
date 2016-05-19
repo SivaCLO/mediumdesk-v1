@@ -19,19 +19,6 @@ function sendAction(action) {
 	win.webContents.send(action);
 }
 
-function openURL(url) {
-	const win = BrowserWindow.getAllWindows()[0];
-	win.loadURL(url);
-}
-
-function openHome() {
-	openURL('https://medium.com/');
-}
-
-function openSearch() {
-	openURL('https://medium.com/search');
-}
-
 const helpSubmenu = [
 	{
 		label: `${appName} Website...`,
@@ -161,7 +148,7 @@ const darwinTpl = [
 				label: 'Search Medium',
 				accelerator: 'Cmd+F',
 				click() {
-					openSearch();
+					sendAction('open-search');
 				}
 			},
 			{
@@ -171,7 +158,7 @@ const darwinTpl = [
 				label: 'Home',
 				accelerator: 'Cmd+0',
 				click() {
-					openHome();
+					sendAction('open-home');
 				}
 			},
 			{
@@ -326,7 +313,7 @@ const otherTpl = [
 				label: 'Search Medium',
 				accelerator: 'Ctrl+F',
 				click() {
-					openSearch();
+					sendAction('open-search');
 				}
 			},
 			{
@@ -336,7 +323,7 @@ const otherTpl = [
 				label: 'Home',
 				accelerator: 'Ctrl+0',
 				click() {
-					openHome();
+					sendAction('open-home');
 				}
 			},
 			{
