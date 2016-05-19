@@ -7,6 +7,8 @@ const BrowserWindow = electron.BrowserWindow;
 const shell = electron.shell;
 const appName = app.getName();
 
+var params = {};
+
 function sendAction(action) {
 	const win = BrowserWindow.getAllWindows()[0];
 
@@ -156,6 +158,13 @@ const darwinTpl = [
 				}
 			},
 			{
+				label: 'Search Medium',
+				accelerator: 'Cmd+F',
+				click() {
+					openSearch();
+				}
+			},
+			{
 				type: 'separator'
 			},
 			{
@@ -219,13 +228,6 @@ const darwinTpl = [
 				click() {
 					sendAction('open-settings');
 				}
-			},
-			{
-				label: 'Sign out',
-				accelerator: 'Cmd+8',
-				click() {
-					sendAction('log-out');
-				}
 			}
 		]
 	},
@@ -264,16 +266,6 @@ const darwinTpl = [
 				label: 'Select All',
 				accelerator: 'Cmd+A',
 				role: 'selectall'
-			},
-			{
-				type: 'separator'
-			},
-			{
-				label: 'Search Medium',
-				accelerator: 'Cmd+F',
-				click() {
-					openSearch();
-				}
 			}
 		]
 	},
@@ -328,6 +320,13 @@ const otherTpl = [
 				accelerator: 'Ctrl+N',
 				click() {
 					sendAction('open-new');
+				}
+			},
+			{
+				label: 'Search Medium',
+				accelerator: 'Ctrl+F',
+				click() {
+					openSearch();
 				}
 			},
 			{
@@ -396,13 +395,6 @@ const otherTpl = [
 				}
 			},
 			{
-				label: 'Sign out',
-				accelerator: 'Ctrl+8',
-				click() {
-					sendAction('log-out');
-				}
-			},
-			{
 				label: 'Quit',
 				accelerator: 'Ctrl+W',
 				click() {
@@ -428,16 +420,6 @@ const otherTpl = [
 				label: 'Paste',
 				accelerator: 'Ctrl+V',
 				role: 'paste'
-			},
-			{
-				type: 'separator'
-			},
-			{
-				label: 'Search Medium',
-				accelerator: 'Ctrl+F',
-				click() {
-					openSearch();
-				}
 			}
 		]
 	},
@@ -452,6 +434,16 @@ const otherTpl = [
 	}
 ];
 
-const tpl = process.platform === 'darwin' ? darwinTpl : otherTpl;
+exports.build = () => {
+	console.log(params);
+	const tpl = process.platform === 'darwin' ? darwinTpl : otherTpl;
+	return electron.Menu.buildFromTemplate(tpl);
+};
 
-module.exports = electron.Menu.buildFromTemplate(tpl);
+exports.setParam = (name, value) => {
+	params[name] = value;
+}
+
+exports.getParam = (name) => {
+	return params[name];
+}

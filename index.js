@@ -3,7 +3,7 @@ const path = require('path');
 const fs = require('fs');
 const electron = require('electron');
 const app = electron.app;
-const appMenu = require('./menu');
+const menu = require('./menu');
 const storage = require('./storage');
 const tray = require('./tray');
 
@@ -18,7 +18,6 @@ const isAlreadyRunning = app.makeSingleInstance(() => {
 		if (mainWindow.isMinimized()) {
 			mainWindow.restore();
 		}
-
 		mainWindow.show();
 	}
 });
@@ -69,7 +68,7 @@ function createMainWindow() {
 }
 
 app.on('ready', () => {
-	electron.Menu.setApplicationMenu(appMenu);
+	electron.Menu.setApplicationMenu(menu.build());
 	mainWindow = createMainWindow();
 	tray.create(mainWindow);
 
