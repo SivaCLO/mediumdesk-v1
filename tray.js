@@ -42,13 +42,3 @@ exports.create = win => {
 	tray.setContextMenu(contextMenu);
 	tray.on('click', toggleWin);
 };
-
-exports.setBadge = shouldDisplayUnread => {
-	if (process.platform === 'darwin' || !tray) {
-		return;
-	}
-
-	const icon = shouldDisplayUnread ? 'IconTrayUnread.png' : 'IconTray.png';
-	const iconPath = path.join(__dirname, `static/${icon}`);
-	tray.setImage(iconPath);
-};

@@ -17,50 +17,43 @@ function sendAction(action) {
 	win.webContents.send(action);
 }
 
-const viewSubmenu = [
-	{
-		label: 'Reset Text Size',
-		accelerator: 'CmdOrCtrl+0',
-		click() {
-			sendAction('zoom-reset');
-		}
-	},
-	{
-		label: 'Increase Text Size',
-		accelerator: 'CmdOrCtrl+Plus',
-		click() {
-			sendAction('zoom-in');
-		}
-	},
-	{
-		label: 'Decrease Text Size',
-		accelerator: 'CmdOrCtrl+-',
-		click() {
-			sendAction('zoom-out');
-		}
-	}
-];
+function openURL(url) {
+	const win = BrowserWindow.getAllWindows()[0];
+	win.loadURL(url);
+}
+
+function openSearch() {
+	openURL('https://medium.com/search');
+}
 
 const helpSubmenu = [
 	{
 		label: `${appName} Website...`,
 		click() {
-			shell.openExternal('https://github.com/sindresorhus/caprine');
+			shell.openExternal('https://medium.com/desktop-apps');
 		}
+	},
+	{
+		label: `Medium Website...`,
+		click() {
+			shell.openExternal('https://medium.com');
+		}
+	},
+	{
+		type: 'separator'
 	},
 	{
 		label: 'Report an Issue...',
 		click() {
 			const body = `
-<!-- Please succinctly describe your issue and steps to reproduce it. -->
+<< Please succinctly describe your issue and steps to reproduce it. >>
 
--
-
+----
 ${app.getName()} ${app.getVersion()}
 Electron ${process.versions.electron}
 ${process.platform} ${process.arch} ${os.release()}`;
 
-			shell.openExternal(`https://github.com/sindresorhus/caprine/issues/new?body=${encodeURIComponent(body)}`);
+			shell.openExternal(`https://github.com/sivragav/mediumdesk/issues/new?body=${encodeURIComponent(body)}`);
 		}
 	}
 ];
@@ -74,7 +67,7 @@ if (process.platform !== 'darwin') {
 			electron.dialog.showMessageBox({
 				title: `About ${appName}`,
 				message: `${appName} ${app.getVersion()}`,
-				detail: 'Created by Sindre Sorhus',
+				detail: 'Created by Sivaprakash Ragavan',
 				icon: path.join(__dirname, 'static/Icon.png'),
 				buttons: []
 			});
@@ -94,26 +87,10 @@ const darwinTpl = [
 				type: 'separator'
 			},
 			{
-				label: 'Toggle Dark Mode',
-				accelerator: 'Cmd+D',
-				click() {
-					sendAction('toggle-dark-mode');
-				}
-			},
-			{
 				label: 'Preferences...',
 				accelerator: 'Cmd+,',
 				click() {
-					sendAction('show-preferences');
-				}
-			},
-			{
-				type: 'separator'
-			},
-			{
-				label: 'Log Out',
-				click() {
-					sendAction('log-out');
+					sendAction('open-settings');
 				}
 			},
 			{
@@ -157,34 +134,85 @@ const darwinTpl = [
 		label: 'File',
 		submenu: [
 			{
-				label: 'New Conversation',
+				label: 'New Story',
 				accelerator: 'Cmd+N',
 				click() {
-					sendAction('new-conversation');
+					sendAction('open-new');
 				}
 			},
 			{
 				type: 'separator'
 			},
 			{
-				label: 'Mute Conversation',
+				label: 'Search Medium',
+				accelerator: 'Cmd+0',
+				click() {
+					openSearch();
+				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Drafts',
 				accelerator: 'Cmd+1',
 				click() {
-					sendAction('mute-conversation');
+					sendAction('open-drafts');
 				}
 			},
 			{
-				label: 'Archive Conversation',
+				label: 'Stories',
 				accelerator: 'Cmd+2',
 				click() {
-					sendAction('archive-conversation');
+					sendAction('open-stories');
 				}
 			},
 			{
-				label: 'Delete Conversation',
+				label: 'Stats',
 				accelerator: 'Cmd+3',
 				click() {
-					sendAction('delete-conversation');
+					sendAction('open-stats');
+				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Bookmarks',
+				accelerator: 'Cmd+4',
+				click() {
+					sendAction('open-bookmarks');
+				}
+			},
+			{
+				label: 'Publications',
+				accelerator: 'Cmd+5',
+				click() {
+					sendAction('open-pubs');
+				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Profile',
+				accelerator: 'Cmd+6',
+				click() {
+					sendAction('open-profile');
+				}
+			},
+			{
+				label: 'Settings',
+				accelerator: 'Cmd+7',
+				click() {
+					sendAction('open-settings');
+				}
+			},
+			{
+				label: 'Sign out',
+				accelerator: 'Cmd+8',
+				click() {
+					sendAction('log-out');
 				}
 			}
 		]
@@ -228,10 +256,6 @@ const darwinTpl = [
 		]
 	},
 	{
-		label: 'View',
-		submenu: viewSubmenu
-	},
-	{
 		label: 'Window',
 		role: 'window',
 		submenu: [
@@ -249,36 +273,9 @@ const darwinTpl = [
 				type: 'separator'
 			},
 			{
-				label: 'Select Next Conversation',
-				accelerator: 'Ctrl+Tab',
-				click() {
-					sendAction('next-conversation');
-				}
-			},
-			{
-				label: 'Select Previous Conversation',
-				accelerator: 'Ctrl+Shift+Tab',
-				click() {
-					sendAction('previous-conversation');
-				}
-			},
-			{
-				label: 'Find Conversation',
-				accelerator: 'Cmd+F',
-				click() {
-					sendAction('find');
-				}
-			},
-			{
-				type: 'separator'
-			},
-			{
 				label: 'Bring All to Front',
 				role: 'front'
 			},
-
-			// temp workaround for:
-			// https://github.com/sindresorhus/caprine/issues/5
 			{
 				label: 'Toggle Full Screen',
 				accelerator: 'Ctrl+Cmd+F',
@@ -301,50 +298,90 @@ const otherTpl = [
 		label: 'File',
 		submenu: [
 			{
-				label: 'New Conversation',
+				label: 'New Story',
 				accelerator: 'Ctrl+N',
 				click() {
-					sendAction('new-conversation');
+					sendAction('open-new');
 				}
 			},
 			{
 				type: 'separator'
 			},
 			{
-				label: 'Mute Conversation',
+				label: 'Search Medium',
+				accelerator: 'Ctrl+0',
+				click() {
+					openSearch();
+				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Drafts',
 				accelerator: 'Ctrl+1',
 				click() {
-					sendAction('mute-conversation');
+					sendAction('open-drafts');
 				}
 			},
 			{
-				label: 'Archive Conversation',
+				label: 'Stories',
 				accelerator: 'Ctrl+2',
 				click() {
-					sendAction('archive-conversation');
+					sendAction('open-stories');
 				}
 			},
 			{
-				label: 'Delete Conversation',
+				label: 'Stats',
 				accelerator: 'Ctrl+3',
 				click() {
-					sendAction('delete-conversation');
+					sendAction('open-stats');
 				}
 			},
 			{
 				type: 'separator'
 			},
 			{
-				label: 'Log Out',
+				label: 'Bookmarks',
+				accelerator: 'Ctrl+4',
+				click() {
+					sendAction('open-bookmarks');
+				}
+			},
+			{
+				label: 'Publications',
+				accelerator: 'Ctrl+5',
+				click() {
+					sendAction('open-pubs');
+				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Profile',
+				accelerator: 'Ctrl+6',
+				click() {
+					sendAction('open-profile');
+				}
+			},
+			{
+				label: 'Settings',
+				accelerator: 'Ctrl+7',
+				click() {
+					sendAction('open-settings');
+				}
+			},
+			{
+				label: 'Sign out',
+				accelerator: 'Ctrl+8',
 				click() {
 					sendAction('log-out');
 				}
 			},
 			{
-				type: 'separator'
-			},
-			{
 				label: 'Quit',
+				accelerator: 'Ctrl+W',
 				click() {
 					app.quit();
 				}
@@ -368,29 +405,8 @@ const otherTpl = [
 				label: 'Paste',
 				accelerator: 'Ctrl+V',
 				role: 'paste'
-			},
-			{
-				type: 'separator'
-			},
-			{
-				label: 'Toggle Dark Mode',
-				accelerator: 'Ctrl+D',
-				click() {
-					sendAction('toggle-dark-mode');
-				}
-			},
-			{
-				label: 'Preferences',
-				accelerator: 'Ctrl+,',
-				click() {
-					sendAction('show-preferences');
-				}
 			}
 		]
-	},
-	{
-		label: 'View',
-		submenu: viewSubmenu
 	},
 	{
 		label: 'Help',

@@ -27,23 +27,8 @@ if (isAlreadyRunning) {
 	app.quit();
 }
 
-function updateBadge(title) {
-	// ignore `Sindre messaged you` blinking
-	if (title.indexOf('Messenger') === -1) {
-		return;
-	}
-
-	const messageCount = (/\(([0-9]+)\)/).exec(title);
-
-	if (process.platform === 'darwin') {
-		app.dock.setBadge(messageCount ? messageCount[1] : '');
-	} else {
-		tray.setBadge(messageCount);
-	}
-}
-
 function createMainWindow() {
-	const lastWindowState = storage.get('lastWindowState') || {width: 1000, height: 600};
+	const lastWindowState = storage.get('lastWindowState') || {width: 1050, height: 700};
 
 	const win = new electron.BrowserWindow({
 		title: app.getName(),
@@ -54,22 +39,17 @@ function createMainWindow() {
 		height: lastWindowState.height,
 		icon: process.platform === 'linux' && path.join(__dirname, 'static/Icon.png'),
 		minWidth: 992,
-		minHeight: 500,
-//		titleBarStyle: 'hidden-inset',
-		autoHideMenuBar: true,
+		minHeight: 450,
+		//titleBarStyle: 'hidden-inset',
+		//autoHideMenuBar: true,
 		webPreferences: {
 			// fails without this because of CommonJS script detection
 			nodeIntegration: false,
 			preload: path.join(__dirname, 'browser.js'),
-			// required for Facebook active ping thingy
 			webSecurity: false,
 			plugins: true
 		}
 	});
-
-	if (process.platform === 'darwin') {
-		win.setSheetOffset(40);
-	}
 
 	win.loadURL('https://medium.com/');
 
@@ -85,11 +65,6 @@ function createMainWindow() {
 		}
 	});
 
-	win.on('page-title-updated', (e, title) => {
-		e.preventDefault();
-		updateBadge(title);
-	});
-
 	return win;
 }
 
@@ -102,7 +77,6 @@ app.on('ready', () => {
 
 	page.on('dom-ready', () => {
 		page.insertCSS(fs.readFileSync(path.join(__dirname, 'browser.css'), 'utf8'));
-		page.insertCSS(fs.readFileSync(path.join(__dirname, 'dark-mode.css'), 'utf8'));
 		mainWindow.show();
 	});
 
