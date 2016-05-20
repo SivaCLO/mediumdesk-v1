@@ -6,15 +6,18 @@ Developed by Medium enthusiasts
 [![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
 
 ## Features
-The goal of this app is to purely extend medium.com's experience into desktops. We don't intend to modify/replace any behavior. For every feature we add, we ask ourselves "Would Medium do it, If they built a desktop app?" So here are the features :
+The goal of this app is to purely extend medium.com's experience into desktops. We don't intend to modify/replace any behavior. For every feature we add, we ask ourselves "Would Medium do it, If they built a desktop app?".
 
+* The first goal is to be able to use medium.com without any issues in it's own window. So it is always accessible through your Applications folder, Dock / Task Bar, Search. To find your draft,  you don't have to dig through browser tabs anymore.
 * Native Menus & Shortcuts for commonly used functions (<kbd>Cmd</kbd> <kbd>N</kbd> / <kbd>Ctrl</kbd> <kbd>N</kbd> - New Story, <kbd>Cmd</kbd> <kbd>F</kbd> / <kbd>Ctrl</kbd> <kbd>F</kbd> - Search Medium, <kbd>Cmd</kbd> <kbd>0-7</kbd> / <kbd>Ctrl</kbd> <kbd>0-7</kbd> - Home, Drafts, Public Stories, Stats, Bookmarks, Publications, Profile, Settings.)
-* Back & Forward within the App (In progress)
-* Open in Browser (In progress)
-* Pin pages to keep them open (Planned)
-* External URLs show a top bar similar to medium (Planned)
 
-[This Trello Board](https://trello.com/b/xRgXfJ2y/mediumdesk) shows the complete list of features we are working on / planned.
+## Coming Soon
+* Back & Forward within the App
+* Open in Browser
+* Pin pages to keep them open
+* External URLs show a top bar similar to medium
+
+[This Trello Board](https://trello.com/b/xRgXfJ2y/mediumdesk) shows the complete list of features we are working on.
 
 ## Install
 
