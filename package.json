@@ -15,7 +15,7 @@
     "test": "xo",
     "start": "electron src/index.js",
     "build": "npm run build:osx && npm run build:linux && npm run build:windows",
-    "build:osx": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=darwin --arch=x64 --icon=static/Icon.icns --app-bundle-id=com.sivragav.mediumdesk --sign='Developer ID Application: Sivaprakash Ragavan (7S2WW76HXL)' --app-version=$npm_package_version && cd dist/MediumDesk-darwin-x64 && zip -ryXq9 ../MediumDesk-osx-${npm_package_version}.zip MediumDesk.app",
+    "build:osx": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=darwin --arch=x64 --icon=static/Icon.icns --app-bundle-id=com.sivragav.mediumdesk --sign='Developer ID Application: Sivaprakash Ragavan (7S2WW76HXL)' --app-version=$npm_package_version && cd dist/MediumDesk-darwin-x64 && codesign --deep --force --verbose --sign 'Developer ID Application: Sivaprakash Ragavan (7S2WW76HXL)' MediumDesk.app && zip -ryXq9 ../MediumDesk-osx-${npm_package_version}.zip MediumDesk.app",
     "build:linux": "electron-packager . --overwrite --out=dist --ignore='^media$' --prune --platform=linux --arch=x64 --app-bundle-id=com.sivragav.mediumdesk --app-version=$npm_package_version && cd dist/MediumDesk-linux-x64/ && zip -ryq9 ../MediumDesk-linux-${npm_package_version}.zip *",
     "build:windows": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=win32 --arch=ia32 --icon=static/Icon.ico --version-string.ProductName=$npm_package_productName --app-version=$npm_package_version && cd dist/MediumDesk-win32-ia32 && zip -ryq9 ../MediumDesk-windows-${npm_package_version}.zip *"
   },
