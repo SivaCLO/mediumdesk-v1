@@ -6,6 +6,7 @@ const app = electron.app;
 const BrowserWindow = electron.BrowserWindow;
 const shell = electron.shell;
 const appName = app.getName();
+const UpdateHandler = require('./update');
 
 var params = {};
 
@@ -17,6 +18,11 @@ function sendAction(action) {
 	}
 
 	win.webContents.send(action);
+}
+
+function checkUpdate() {
+	let updateHandler = new UpdateHandler();
+	updateHandler.checkForUpdate(`v${app.getVersion()}`, false);
 }
 
 const helpSubmenu = [
@@ -34,6 +40,12 @@ const helpSubmenu = [
 	},
 	{
 		type: 'separator'
+	},
+	{
+		label: `Check for updates...`,
+		click() {
+			checkUpdate();
+		}
 	},
 	{
 		label: 'Report an Issue...',
@@ -72,7 +84,7 @@ if (process.platform !== 'darwin') {
 				title: `About ${appName}`,
 				message: `${appName} ${app.getVersion()}`,
 				detail: 'Created by Sivaprakash Ragavan',
-				icon: path.join(__dirname, 'static/Icon.png'),
+				icon: path.join(__dirname, '../static/Icon.png'),
 				buttons: []
 			});
 		}

@@ -8,13 +8,13 @@ Developed by Medium enthusiasts
 ## Features
 The goal of this app is to purely extend medium.com's experience into desktops. We don't intend to modify/replace any behavior. For every feature we add, we ask ourselves "Would Medium do it, If they built a desktop app?" So here are the features :
 
-* Native Menus & Shortcuts for commonly used functions
-* Back & Forward within the App (Planned)
-* Open in Browser (Planned)
+* Native Menus & Shortcuts for commonly used functions (<kbd>Cmd</kbd> <kbd>N</kbd> / <kbd>Ctrl</kbd> <kbd>N</kbd> - New Story, <kbd>Cmd</kbd> <kbd>F</kbd> / <kbd>Ctrl</kbd> <kbd>F</kbd> - Search Medium, <kbd>Cmd</kbd> <kbd>0-7</kbd> / <kbd>Ctrl</kbd> <kbd>0-7</kbd> - Home, Drafts, Public Stories, Stats, Bookmarks, Publications, Profile, Settings.)
+* Back & Forward within the App (In progress)
+* Open in Browser (In progress)
 * Pin pages to keep them open (Planned)
 * External URLs show a top bar similar to medium (Planned)
 
-[This Trello Board](https://trello.com/b/xRgXfJ2y/mediumdesk) shows the complete list of features we are working on
+[This Trello Board](https://trello.com/b/xRgXfJ2y/mediumdesk) shows the complete list of features we are working on / planned.
 
 ## Install
 
