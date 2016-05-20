@@ -29,7 +29,7 @@ The goal of this app is to purely extend medium.com's experience into desktops. 
 
 ### Windows
 
-[**Download**](https://github.com/sivragav/mediumdesk/releases/latest) and unzip to some location.
+Coming Soon
 
 ### Linux
 
