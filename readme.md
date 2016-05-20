@@ -1,6 +1,10 @@
 <img src="static/Icon.png" width="200">
 # Desktop App for Medium - MediumDesk
-Developed by Medium enthusiasts
+MediumDesk is a simple app that lets you read and write Medium stories when you are at your desk.
+
+> Developed by Medium enthusiasts
+
+
 
 <br>
 [![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
@@ -21,9 +25,7 @@ The goal of this app is to purely extend medium.com's experience into desktops. 
 
 ## Install
 
-*OS X 10.9+, Windows 7+ & Linux are supported.*
-
-### OS X
+### OS X (10.9+)
 
 [**Download**](https://github.com/sivragav/mediumdesk/releases/latest), unzip, and move `MediumDesk.app` to the `/Applications` directory.
 
