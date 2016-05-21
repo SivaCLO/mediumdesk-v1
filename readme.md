@@ -52,7 +52,15 @@ Icon=/full/path/to/folder/MediumDesk/resources/app/static/Icon.png
 
 ## Dev
 
-Built with [Electron](http://electron.atom.io).
+## Issues
+
+Feel free to submit issues and enhancement requests.
+
+## Contributing
+
+MediumDesk is built with [Electron](http://electron.atom.io). I would love to accept pull requests for any issues or feature request.
+
+[Read more on contributing](https://github.com/sivragav/mediumdesk/blob/master/CONTRIBUTING.md)
 
 ###### Commands
 
