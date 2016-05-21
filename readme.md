@@ -1,8 +1,6 @@
 <img src="static/Icon.png" width="200">
-# Desktop App for Medium - MediumDesk
-MediumDesk is a simple app that lets you read and write Medium stories when you are at your desk.
-
-> Developed by Medium enthusiasts
+# MediumDesk
+MediumDesk is a simple app that lets you read and write Medium stories when you are at your desk. *Developed by Medium enthusiasts*
 
 [Download the app today, and enjoy the best of Medium on your desktop.](https://github.com/sivragav/mediumdesk/releases/latest)
 
