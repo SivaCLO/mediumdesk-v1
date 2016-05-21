@@ -4,10 +4,9 @@ MediumDesk is a simple app that lets you read and write Medium stories when you 
 
 > Developed by Medium enthusiasts
 
-<br>
-[![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
+[Download the app today, and enjoy the best of Medium on your desktop.](https://github.com/sivragav/mediumdesk/releases/latest)
 
-[**Download the app today, and enjoy the best of Medium on your desktop.**](https://github.com/sivragav/mediumdesk/releases/latest)
+[![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
 
 ## Features
 The goal of this app is to purely extend medium.com's experience into desktops. We don't intend to modify/replace any behavior. For every feature we add, we ask ourselves "Would Medium do it, If they built a desktop app?".
