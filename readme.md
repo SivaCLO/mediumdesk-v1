@@ -4,10 +4,10 @@ MediumDesk is a simple app that lets you read and write Medium stories when you 
 
 > Developed by Medium enthusiasts
 
-
-
 <br>
 [![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
+
+[**Download the app today, and enjoy the best of Medium on your desktop.**](https://github.com/sivragav/mediumdesk/releases/latest)
 
 ## Features
 The goal of this app is to purely extend medium.com's experience into desktops. We don't intend to modify/replace any behavior. For every feature we add, we ask ourselves "Would Medium do it, If they built a desktop app?".
@@ -22,31 +22,6 @@ The goal of this app is to purely extend medium.com's experience into desktops. 
 * External URLs show a top bar similar to medium
 
 [This Trello Board](https://trello.com/b/xRgXfJ2y/mediumdesk) shows the complete list of features we are working on.
-
-## Install
-
-### OS X (10.9+)
-
-[**Download**](https://github.com/sivragav/mediumdesk/releases/latest), unzip, and move `MediumDesk.app` to the `/Applications` directory.
-
-### Windows
-
-Coming Soon
-
-### Linux
-
-[**Download**](https://github.com/sivragav/mediumdesk/releases/latest) and unzip to some location.
-
-To add a shortcut to the app, create a file in `~/.local/share/applications` called `mediumdesk.desktop` with the following contents:
-
-```
-[Desktop Entry]
-Name=MediumDesk
-Exec=/full/path/to/folder/MediumDesk
-Terminal=false
-Type=Application
-Icon=/full/path/to/folder/MediumDesk/resources/app/static/Icon.png
-```
 
 ---
 
