@@ -58,7 +58,7 @@ Feel free to submit issues and enhancement requests.
 
 ## Contributing
 
-MediumDesk is built with [Electron](http://electron.atom.io). I would love to accept pull requests for any issues or feature request.
+MediumDesk is built with [Electron](http://electron.atom.io) & would love to accept pull requests for any issues or feature request.
 
 [Read more on contributing](https://github.com/sivragav/mediumdesk/blob/master/CONTRIBUTING.md)
 
