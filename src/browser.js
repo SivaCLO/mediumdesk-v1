@@ -64,6 +64,11 @@ ipc.on('open-search', () => {
 	window.location = "https://medium.com/search";
 });
 
+if (process.platform === 'darwin') {
+	document.documentElement.classList.add('osx');
+} else {
+	document.documentElement.classList.add('notosx');
+}
 
 function openAvatarMenu() {
 	document.querySelector('.metabar-block--right .avatar-image').click();
