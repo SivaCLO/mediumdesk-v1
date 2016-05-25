@@ -1,6 +1,5 @@
 <img src="static/Icon.png" width="200">
-# MediumDesk
-[![Build Status](https://travis-ci.org/sivragav/mediumdesk.svg?branch=master)](https://travis-ci.org/sivragav/mediumdesk)
+# MediumDesk [![Build Status](https://travis-ci.org/sivragav/mediumdesk.svg?branch=master)](https://travis-ci.org/sivragav/mediumdesk)
 MediumDesk is a simple app that lets you read and write Medium stories when you are at your desk. *Developed by Medium enthusiasts*
 
 [![](media/shortcuts.png)](https://github.com/sivragav/mediumdesk/releases/latest)
