@@ -6,8 +6,11 @@ MediumDesk is a simple app that lets you read and write Medium stories when you 
 
 ## Download
 *(Current version : 0.2.1)*
-**[OS X (10.9+)]**(https://github.com/sivragav/mediumdesk/releases/download/v0.2.1/MediumDesk-osx-0.2.1.zip)
-**[Linux]**(https://github.com/sivragav/mediumdesk/releases/download/v0.2.1/MediumDesk-linux-0.2.1.zip)
+
+**[OS X (10.9+)](https://github.com/sivragav/mediumdesk/releases/download/v0.2.1/MediumDesk-osx-0.2.1.zip)**
+
+**[Linux](https://github.com/sivragav/mediumdesk/releases/download/v0.2.1/MediumDesk-linux-0.2.1.zip)**
+
 Windows (7+) - Coming Soon
 
 ## Features
