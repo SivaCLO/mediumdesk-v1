@@ -2,7 +2,7 @@
   "name": "mediumdesk",
   "productName": "MediumDesk",
   "version": "0.2.1",
-  "description": "Desktop App for Medium developed by Medium enthusiasts",
+  "description": "Minimal Desktop App for Medium developed by Medium enthusiasts",
   "main": "src/index.js",
   "license": "MIT",
   "repository": "sivragav/mediumdesk",
