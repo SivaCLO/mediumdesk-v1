@@ -12,7 +12,6 @@
     "url": "medium.com/desktop-apps"
   },
   "scripts": {
-    "test": "xo",
     "start": "electron src/index.js",
     "build": "npm run build:osx && npm run build:linux && npm run build:windows",
     "build:osx": "electron-packager . --overwrite --asar --out=dist --ignore='^media$' --prune --platform=darwin --arch=x64 --icon=static/Icon.icns --app-bundle-id=com.sivragav.mediumdesk --sign='Developer ID Application: Sivaprakash Ragavan (7S2WW76HXL)' --app-version=$npm_package_version && cd dist/MediumDesk-darwin-x64 && codesign --deep --force --verbose --sign 'Developer ID Application: Sivaprakash Ragavan (7S2WW76HXL)' MediumDesk.app && zip -ryXq9 ../MediumDesk-osx-${npm_package_version}.zip MediumDesk.app",
@@ -26,14 +25,6 @@
   },
   "devDependencies": {
     "electron-packager": "^7.0.0",
-    "electron-prebuilt": "^1.0.2",
-    "xo": "*"
-  },
-  "xo": {
-    "esnext": true,
-    "envs": [
-      "node",
-      "browser"
-    ]
+    "electron-prebuilt": "^1.0.2"
   }
 }

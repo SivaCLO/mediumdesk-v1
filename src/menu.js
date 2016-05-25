@@ -8,7 +8,7 @@ const shell = electron.shell;
 const appName = app.getName();
 const UpdateHandler = require('./update');
 
-var params = {};
+const params = {};
 
 function sendAction(action) {
 	const win = BrowserWindow.getAllWindows()[0];
@@ -21,7 +21,7 @@ function sendAction(action) {
 }
 
 function checkUpdate() {
-	let updateHandler = new UpdateHandler();
+	const updateHandler = new UpdateHandler();
 	updateHandler.checkForUpdate(`v${app.getVersion()}`, false);
 }
 
@@ -441,8 +441,8 @@ exports.build = () => {
 
 exports.setParam = (name, value) => {
 	params[name] = value;
-}
+};
 
-exports.getParam = (name) => {
+exports.getParam = name => {
 	return params[name];
-}
+};
