@@ -7,6 +7,11 @@ html .popover div ul li a:after {
 }
 
 /** OS X **/
+
+html.osx .popover div ul li a:after {
+	width: 30px;
+}
+
 html.osx .popover div ul li:nth-child(1) a:after {
 	content: "⌘N";
 }
@@ -39,35 +44,40 @@ html.osx .popover div ul li:nth-child(10) a:after {
 	content: "⌘7";
 }
 
-/** Non OS X **/
-html.nonosx .popover div ul li:nth-child(1) a:after {
+/** Not OS X **/
+
+html.notosx .popover div ul li a:after {
+	width: 50px;
+}
+
+html.notosx .popover div ul li:nth-child(1) a:after {
 	content: "Ctrl+N";
 }
 
-html.nonosx .popover div ul li:nth-child(2) a:after {
+html.notosx .popover div ul li:nth-child(2) a:after {
 	content: "Ctrl+1";
 }
 
-html.nonosx .popover div ul li:nth-child(3) a:after {
+html.notosx .popover div ul li:nth-child(3) a:after {
 	content: "Ctrl+2";
 }
 
-html.nonosx .popover div ul li:nth-child(4) a:after {
+html.notosx .popover div ul li:nth-child(4) a:after {
 	content: "Ctrl+3";
 }
 
-html.nonosx .popover div ul li:nth-child(6) a:after {
+html.notosx .popover div ul li:nth-child(6) a:after {
 	content: "Ctrl+4";
 }
 
-html.nonosx .popover div ul li:nth-child(7) a:after {
+html.notosx .popover div ul li:nth-child(7) a:after {
 	content: "Ctrl+5";
 }
 
-html.nonosx .popover div ul li:nth-child(9) a:after {
+html.notosx .popover div ul li:nth-child(9) a:after {
 	content: "Ctrl+6";
 }
 
-html.nonosx .popover div ul li:nth-child(10) a:after {
+html.notosx .popover div ul li:nth-child(10) a:after {
 	content: "Ctrl+7";
 }
