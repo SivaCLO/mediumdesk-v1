@@ -1,3 +1,43 @@
 html {
 	overflow: hidden;
 }
+
+.popover div ul li:nth-child(1) a:after {
+	content: "⌘N";
+	float: right;
+}
+
+.popover div ul li:nth-child(2) a:after {
+	content: "⌘1";
+	float: right;
+}
+
+.popover div ul li:nth-child(3) a:after {
+	content: "⌘2";
+	float: right;
+}
+
+.popover div ul li:nth-child(4) a:after {
+	content: "⌘3";
+	float: right;
+}
+
+.popover div ul li:nth-child(6) a:after {
+	content: "⌘4";
+	float: right;
+}
+
+.popover div ul li:nth-child(7) a:after {
+	content: "⌘5";
+	float: right;
+}
+
+.popover div ul li:nth-child(9) a:after {
+	content: "⌘6";
+	float: right;
+}
+
+.popover div ul li:nth-child(10) a:after {
+	content: "⌘7";
+	float: right;
+}
