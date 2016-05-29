@@ -158,7 +158,7 @@ const darwinTpl = [
 			},
 			{
 				label: 'Search Medium',
-				accelerator: 'Cmd+F',
+				accelerator: 'Cmd+Shift+F',
 				click() {
 					sendAction('open-search');
 				}
@@ -323,7 +323,7 @@ const otherTpl = [
 			},
 			{
 				label: 'Search Medium',
-				accelerator: 'Ctrl+F',
+				accelerator: 'Ctrl+Shift+F',
 				click() {
 					sendAction('open-search');
 				}
