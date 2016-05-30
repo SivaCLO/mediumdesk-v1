@@ -25,8 +25,6 @@ The goal of this app is to purely extend medium.com's experience into desktops. 
 * Pin pages to keep them open
 * External URLs show a top bar similar to medium
 
-[This Trello Board](https://trello.com/b/xRgXfJ2y/mediumdesk) shows the complete list of features we are working on.
-
 ---
 
 ## Dev
