@@ -47,7 +47,3 @@ MediumDesk is built with [Electron](http://electron.atom.io) & would love to acc
 - Build Linux: `$ npm run build:linux`
 - Build Windows: `$ npm run build:windows`
 - Build all: `$ brew install wine` and `$ npm run build` *(OS X only)*
-
-## License
-
-MIT © [Sivaprakash Ragavan](https://medium.com/desktop-apps)
