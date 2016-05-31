@@ -48,7 +48,7 @@ function createMainWindow() {
 			// fails without this because of CommonJS script detection
 			nodeIntegration: false,
 			preload: path.join(__dirname, 'browser.js'),
-			webSecurity: false,
+			webSecurity: true,
 			plugins: true
 		}
 	});

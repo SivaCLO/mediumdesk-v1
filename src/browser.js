@@ -4,49 +4,49 @@ const ipc = electron.ipcRenderer;
 
 ipc.on('open-new', () => {
 	if (!clickAvatarMenuItem(0)) {
-		window.location = 'https://medium.com/new-story';
+		window.location.pathname = '/new-story';
 	}
 });
 
 ipc.on('open-drafts', () => {
 	if (!clickAvatarMenuItem(1)) {
-		window.location = 'https://medium.com/me/stories/drafts';
+		window.location.pathname = '/me/stories/drafts';
 	}
 });
 
 ipc.on('open-stories', () => {
 	if (!clickAvatarMenuItem(2)) {
-		window.location = 'https://medium.com/me/stories/public';
+		window.location.pathname = '/me/stories/public';
 	}
 });
 
 ipc.on('open-stats', () => {
 	if (!clickAvatarMenuItem(3)) {
-		window.location = 'https://medium.com/me/stats';
+		window.location.pathname = '/me/stats';
 	}
 });
 
 ipc.on('open-bookmarks', () => {
 	if (!clickAvatarMenuItem(5)) {
-		window.location = 'https://medium.com/browse/bookmarks';
+		window.location.pathname = '/browse/bookmarks';
 	}
 });
 
 ipc.on('open-pubs', () => {
 	if (!clickAvatarMenuItem(6)) {
-		window.location = 'https://medium.com/me/publications';
+		window.location.pathname = '/me/publications';
 	}
 });
 
 ipc.on('open-profile', () => {
 	if (!clickAvatarMenuItem(8)) {
-		window.location = 'https://medium.com/me';
+		window.location.pathname = '/me';
 	}
 });
 
 ipc.on('open-settings', () => {
 	if (!clickAvatarMenuItem(9)) {
-		window.location = 'https://medium.com/me/settings';
+		window.location.pathname = '/me/settings';
 	}
 });
 
@@ -54,19 +54,15 @@ ipc.on('open-home', () => {
 	try {
 		document.querySelector('.siteNav-logo').click();
 	} catch (e) {
-		window.location = 'https://medium.com';
+		window.location.pathname = '/';
 	}
 });
 
 ipc.on('open-search', () => {
-	window.location = 'https://medium.com/search';
+	window.location.pathname = '/search';
 });
 
-if (process.platform === 'darwin') {
-	document.documentElement.classList.add('osx');
-} else {
-	document.documentElement.classList.add('notosx');
-}
+document.documentElement.classList.add(process.platform === 'darwin' ? 'osx' : 'notosx');
 
 function openAvatarMenu() {
 	document.querySelector('.metabar-block--right .avatar-image').click();
