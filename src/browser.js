@@ -1,52 +1,53 @@
 'use strict';
 const electron = require('electron');
 const ipc = electron.ipcRenderer;
+const BrowserWindow = electron.remote.BrowserWindow;
 
 ipc.on('open-new', () => {
 	if (!clickAvatarMenuItem(0)) {
-		window.location.pathname = '/new-story';
+		window.location = 'https://medium.com/new-story';
 	}
 });
 
 ipc.on('open-drafts', () => {
 	if (!clickAvatarMenuItem(1)) {
-		window.location.pathname = '/me/stories/drafts';
+		window.location = 'https://medium.com/me/stories/drafts';
 	}
 });
 
 ipc.on('open-stories', () => {
 	if (!clickAvatarMenuItem(2)) {
-		window.location.pathname = '/me/stories/public';
+		window.location = 'https://medium.com/me/stories/public';
 	}
 });
 
 ipc.on('open-stats', () => {
 	if (!clickAvatarMenuItem(3)) {
-		window.location.pathname = '/me/stats';
+		window.location = 'https://medium.com/me/stats';
 	}
 });
 
 ipc.on('open-bookmarks', () => {
 	if (!clickAvatarMenuItem(5)) {
-		window.location.pathname = '/browse/bookmarks';
+		window.location = 'https://medium.com/browse/bookmarks';
 	}
 });
 
 ipc.on('open-pubs', () => {
 	if (!clickAvatarMenuItem(6)) {
-		window.location.pathname = '/me/publications';
+		window.location = 'https://medium.com/me/publications';
 	}
 });
 
 ipc.on('open-profile', () => {
 	if (!clickAvatarMenuItem(8)) {
-		window.location.pathname = '/me';
+		window.location = 'https://medium.com/me';
 	}
 });
 
 ipc.on('open-settings', () => {
 	if (!clickAvatarMenuItem(9)) {
-		window.location.pathname = '/me/settings';
+		window.location = 'https://medium.com/me/settings';
 	}
 });
 
@@ -54,12 +55,20 @@ ipc.on('open-home', () => {
 	try {
 		document.querySelector('.siteNav-logo').click();
 	} catch (e) {
-		window.location.pathname = '/';
+		window.location = 'https://medium.com/';
 	}
 });
 
 ipc.on('open-search', () => {
-	window.location.pathname = '/search';
+	window.location = 'https://medium.com/search';
+});
+
+ipc.on('open-file', () => {
+		const win = BrowserWindow.getAllWindows()[0];
+		const {dialog} = require('electron').remote;
+		dialog.showOpenDialog(win, {properties: ['openFile']}, function(filenames) {
+			console.log(filenames);
+		});
 });
 
 document.documentElement.classList.add(process.platform === 'darwin' ? 'osx' : 'notosx');

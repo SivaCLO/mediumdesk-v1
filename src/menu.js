@@ -157,6 +157,13 @@ const darwinTpl = [
 				}
 			},
 			{
+				label: 'Import from disk...',
+				accelerator: 'Cmd+O',
+				click() {
+					sendAction('open-file');
+				}
+			},
+			{
 				label: 'Search Medium',
 				accelerator: 'Cmd+Shift+F',
 				click() {
@@ -319,6 +326,13 @@ const otherTpl = [
 				accelerator: 'Ctrl+N',
 				click() {
 					sendAction('open-new');
+				}
+			},
+			{
+				label: 'Import from disk...',
+				accelerator: 'Ctrl+O',
+				click() {
+					sendAction('open-file');
 				}
 			},
 			{
