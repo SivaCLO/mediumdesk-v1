@@ -1,5 +1,6 @@
 'use strict';
 const electron = require('electron');
+const fs = require('fs');
 const ipc = electron.ipcRenderer;
 const BrowserWindow = electron.remote.BrowserWindow;
 
@@ -67,7 +68,15 @@ ipc.on('open-file', () => {
 		const win = BrowserWindow.getAllWindows()[0];
 		const {dialog} = require('electron').remote;
 		dialog.showOpenDialog(win, {properties: ['openFile']}, function(filenames) {
-			console.log(filenames);
+			const file = filenames[0];
+			console.log(file);
+			try {
+				fs.openSync(file, 'r+');
+				var data = fs.readFileSync(file);
+				console.log(data);
+			} catch (err) {
+				console.error('Couldn\'t read file' + err);
+			}
 		});
 });
 
