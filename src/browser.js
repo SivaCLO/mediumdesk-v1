@@ -3,7 +3,7 @@ const electron = require('electron');
 const fs = require('fs');
 const ipc = electron.ipcRenderer;
 const BrowserWindow = electron.remote.BrowserWindow;
-const mediumapi = require('./mediumapi');
+const Common = require('./common');
 
 ipc.on('open-new', () => {
 	if (!clickAvatarMenuItem(0)) {
@@ -75,31 +75,9 @@ ipc.on('open-file', () => {
 			    {name: 'HTML', extensions: ['html', 'htm']}
 			  ]
 			}, function(filenames) {
-				const file = filenames[0];
-				console.log(file);
-				try {
-					fs.openSync(file, 'r+');
-					var data = fs.readFileSync(file).toString();
-					mediumapi.publish("", data, file.endsWith("html") | file.endsWith("html") ? "html" : "markdown", [],
-						(error, statusCode, headers, body) => {
-							if(error) {
-					    	console.log('ERROR:', error);
-					    	console.log('STATUS:', statusCode);
-					    	console.log('HEADERS:', JSON.stringify(headers));
-								console.log('BODY:', body);
-							} else {
-					    	console.log('BODY:', body);
-								var bodyContents = JSON.parse(body);
-								const url = bodyContents["data"]["url"];
-								console.log(url);
-								if(url) {
-									window.location = url;
-								}
-							}
-						}
-					);
-				} catch (err) {
-					console.error('Couldn\'t read file' + err);
+				if(filenames && filenames.length == 1) {
+					const file = filenames[0];
+					ipc.send('import-file', file);
 				}
 			}
 		);

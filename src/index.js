@@ -9,6 +9,8 @@ const navigate = require('./navigate');
 const tray = require('./tray');
 const UpdateHandler = require('./update');
 const Common = require('./common');
+const {ipcMain} = require('electron');
+const mediumapi = require('./mediumapi');
 
 require('electron-debug')();
 require('electron-dl')();
@@ -104,3 +106,57 @@ app.on('before-quit', () => {
 		storage.set('lastWindowState', mainWindow.getBounds());
 	}
 });
+
+// Messages
+ipcMain.on('import-file', (event, file) => {
+	console.log("Importing : " + file);
+	const win = electron.BrowserWindow.getAllWindows()[0];
+	showLoadingMessage('Importing from disk...');
+	setTimeout(() => {
+		try {
+			fs.openSync(file, 'r+');
+			var data = fs.readFileSync(file).toString();
+			mediumapi.publish("", data, file.endsWith("html") | file.endsWith("html") ? "html" : "markdown", [],
+				(error, statusCode, headers, body) => {
+					if(error || !(statusCode == 200 || statusCode == 201)) {
+						console.log('Error: ', error);
+						console.log('Status: ', statusCode);
+						console.log('Headers: ', JSON.stringify(headers));
+						console.log('Body: ', body);
+						if(body) {
+							var bodyContents = JSON.parse(body);
+							showErrorMessage(bodyContents["errors"][0]["message"]);
+						} else {
+							showErrorMessage('Unknown Error Occured');
+						}
+					} else {
+						console.log('Reponse from Medium: ', body);
+						var bodyContents = JSON.parse(body);
+						const url = bodyContents["data"]["url"];
+						if(url) {
+							win.loadURL(url);
+						} else {
+							showErrorMessage('Error loading Draft');
+						}
+					}
+				}
+			);
+		} catch (err) {
+			console.error('Couldn\'t read file' + err);
+			showErrorMessage('Error reading file');
+		}
+	}, 100);
+});
+
+function showLoadingMessage(msg) {
+	const win = electron.BrowserWindow.getAllWindows()[0];
+	win.loadURL('file://' + __dirname + '/pages/message.html?msg=' + encodeURIComponent(msg) + '&loading=true');
+}
+
+function showErrorMessage(msg) {
+	const win = electron.BrowserWindow.getAllWindows()[0];
+	win.loadURL('file://' + __dirname + '/pages/message.html?msg=' + encodeURIComponent(msg) + '&error=true');
+	setTimeout(() => {
+		win.loadURL(Common.MEDIUM_HOME);
+	}, 2500);
+}

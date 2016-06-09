@@ -1,14 +1,22 @@
 'use strict';
 const httpTransport = require('https');
 
+const authorId = 'xxx';
+const authToken = 'xxx';
+
 exports.publish = (title, content, contentFormat, tags, callback) => {
     const responseEncoding = 'utf8';
     const httpOptions = {
         hostname: 'api.medium.com',
         port: '443',
-        path: '/v1/users/xxx/posts',
+        path: '/v1/users/' + authorId + '/posts',
         method: 'POST',
-        headers: {"Accept-Charset":"utf-8","Authorization":"Bearer xxx","Content-Type":"application/json","Accept":"application/json"}
+        headers: {
+          "Accept-Charset":"utf-8",
+          "Authorization":"Bearer " + authToken,
+          "Content-Type":"application/json",
+          "Accept":"application/json"
+        }
     };
     httpOptions.headers['User-Agent'] = 'node ' + process.version;
 

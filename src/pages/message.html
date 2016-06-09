@@ -1,0 +1,66 @@
+<!doctype html>
+<html>
+<head>
+  <title></title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:300' rel='stylesheet' type='text/css'>
+
+  <style type="text/css">
+  .main {
+    padding-top: 200px;
+  }
+
+  #loader {
+    margin: auto;
+  }
+
+  #msg {
+    margin: auto;
+    padding-top: 30px;
+    text-align: center;
+    font-family: 'Lato', sans-serif;
+    font-size: 25px;
+    color: #666666;
+  }
+  </style>
+</head>
+<body>
+  <div class="main">
+    <img id='loader' style='display:none;' src="../../static/ajax-loader.gif">
+    <div id='msg'></div>
+  </div>
+  <script>
+  var QueryString = function () {
+    // This function is anonymous, is executed immediately and
+    // the return value is assigned to QueryString!
+    var query_string = {};
+    var query = window.location.search.substring(1);
+    var vars = query.split("&");
+    for (var i=0;i<vars.length;i++) {
+      var pair = vars[i].split("=");
+          // If first entry with this name
+      if (typeof query_string[pair[0]] === "undefined") {
+        query_string[pair[0]] = decodeURIComponent(pair[1]);
+          // If second entry with this name
+      } else if (typeof query_string[pair[0]] === "string") {
+        var arr = [ query_string[pair[0]],decodeURIComponent(pair[1]) ];
+        query_string[pair[0]] = arr;
+          // If third or later entry with this name
+      } else {
+        query_string[pair[0]].push(decodeURIComponent(pair[1]));
+      }
+    }
+    return query_string;
+  }();
+  document.getElementById('msg').innerHTML = QueryString.msg;
+  document.title = QueryString.msg;
+  if(QueryString.loading) {
+    document.getElementById('loader').style = 'display:block;';
+  }
+
+  if(QueryString.error) {
+    document.getElementById('msg').style = 'color: #aa4444';
+  }
+
+  </script>
+</body>
+</html>
