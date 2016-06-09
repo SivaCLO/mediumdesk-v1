@@ -3,6 +3,7 @@ const electron = require('electron');
 const fs = require('fs');
 const ipc = electron.ipcRenderer;
 const BrowserWindow = electron.remote.BrowserWindow;
+const mediumapi = require('./mediumapi');
 
 ipc.on('open-new', () => {
 	if (!clickAvatarMenuItem(0)) {
@@ -67,17 +68,41 @@ ipc.on('open-search', () => {
 ipc.on('open-file', () => {
 		const win = BrowserWindow.getAllWindows()[0];
 		const {dialog} = require('electron').remote;
-		dialog.showOpenDialog(win, {properties: ['openFile']}, function(filenames) {
-			const file = filenames[0];
-			console.log(file);
-			try {
-				fs.openSync(file, 'r+');
-				var data = fs.readFileSync(file);
-				console.log(data);
-			} catch (err) {
-				console.error('Couldn\'t read file' + err);
+		dialog.showOpenDialog(win, {
+				properties: ['openFile'],
+				filters: [
+			    {name: 'Markdown', extensions: ['md', 'markdown']},
+			    {name: 'HTML', extensions: ['html', 'htm']}
+			  ]
+			}, function(filenames) {
+				const file = filenames[0];
+				console.log(file);
+				try {
+					fs.openSync(file, 'r+');
+					var data = fs.readFileSync(file).toString();
+					mediumapi.publish("", data, file.endsWith("html") | file.endsWith("html") ? "html" : "markdown", [],
+						(error, statusCode, headers, body) => {
+							if(error) {
+					    	console.log('ERROR:', error);
+					    	console.log('STATUS:', statusCode);
+					    	console.log('HEADERS:', JSON.stringify(headers));
+								console.log('BODY:', body);
+							} else {
+					    	console.log('BODY:', body);
+								var bodyContents = JSON.parse(body);
+								const url = bodyContents["data"]["url"];
+								console.log(url);
+								if(url) {
+									window.location = url;
+								}
+							}
+						}
+					);
+				} catch (err) {
+					console.error('Couldn\'t read file' + err);
+				}
 			}
-		});
+		);
 });
 
 document.documentElement.classList.add(process.platform === 'darwin' ? 'osx' : 'notosx');
