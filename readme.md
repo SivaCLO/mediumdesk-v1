@@ -20,6 +20,7 @@ The goal of this app is to purely extend medium.com's experience into desktops. 
 * Native Menus & Shortcuts for commonly used functions (<kbd>Cmd</kbd> <kbd>N</kbd> / <kbd>Ctrl</kbd> <kbd>N</kbd> - New Story, <kbd>Cmd</kbd> <kbd>F</kbd> / <kbd>Ctrl</kbd> <kbd>F</kbd> - Search Medium, <kbd>Cmd</kbd> <kbd>0-7</kbd> / <kbd>Ctrl</kbd> <kbd>0-7</kbd> - Home, Drafts, Public Stories, Stats, Bookmarks, Publications, Profile, Settings.)
 
 ## Coming Soon
+* Import file from disk...
 * Back & Forward within the App
 * Open in Browser
 * Pin pages to keep them open
