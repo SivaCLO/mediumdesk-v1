@@ -1,5 +1,5 @@
 <img src="static/Icon.png" width="200">
-# MediumDesk [![Downloads](https://img.shields.io/github/downloads/sivragav/mediumdesk/total.svg)](https://github.com/sivragav/mediumdesk/releases/latest)
+# MediumDesk [![Github All Releases](https://img.shields.io/github/downloads/atom/atom/total.svg)](https://github.com/sivahq/mediumdesk)
 MediumDesk is a simple app that lets you read and write Medium stories when you are at your desk. *Developed by Medium enthusiasts*
 
 [![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
