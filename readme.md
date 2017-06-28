@@ -1,19 +1,19 @@
 <img src="static/Icon.png" width="200">
 
-[![Github All Releases](https://img.shields.io/github/downloads/sivahq/mediumdesk/total.svg)](https://github.com/sivahq/mediumdesk)
+[![Github All Releases](https://img.shields.io/github/downloads/clodotai/mediumdesk/total.svg)](https://github.com/clodotai/mediumdesk)
 
 # MediumDesk
 
 MediumDesk is a simple app that lets you read and write Medium stories when you are at your desk. *Developed by Medium enthusiasts*
 
-[![](media/screenshot.png)](https://github.com/sivragav/mediumdesk/releases/latest)
+[![](media/screenshot.png)](https://github.com/clodotai/mediumdesk/releases/latest)
 
 ## Download
 *(Current version : 0.2.1)*
 
-**[OS X (10.9+)](https://github.com/sivragav/mediumdesk/releases/download/v0.2.1/MediumDesk-osx-0.2.1.zip)**
+**[OS X (10.9+)](https://github.com/clodotai/mediumdesk/releases/download/v0.2.1/MediumDesk-osx-0.2.1.zip)**
 
-**[Linux](https://github.com/sivragav/mediumdesk/releases/download/v0.2.1/MediumDesk-linux-0.2.1.zip)**
+**[Linux](https://github.com/clodotai/mediumdesk/releases/download/v0.2.1/MediumDesk-linux-0.2.1.zip)**
 
 Windows (7+) - Coming Soon
 
@@ -42,7 +42,7 @@ Feel free to submit issues and enhancement requests.
 
 MediumDesk is built with [Electron](http://electron.atom.io) & would love to accept pull requests for any issues or feature request.
 
-[Read more on contributing](https://github.com/sivragav/mediumdesk/blob/master/CONTRIBUTING.md)
+[Read more on contributing](https://github.com/clodotai/mediumdesk/blob/master/CONTRIBUTING.md)
 
 ###### Commands
 
