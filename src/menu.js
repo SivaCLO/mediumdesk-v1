@@ -74,14 +74,14 @@ const viewSubmenu = [
 	},
 	{
 		label: `Back`,
-		accelerator: `Cmd+[`,
+		accelerator: `CmdOrCtrl+[`,
 		click() {
 			sendAction('go-back');
 		}
 	},
 	{
 		label: `Forward`,
-		accelerator: `Cmd+]`,
+		accelerator: `CmdOrCtrl+]`,
 		click() {
 			sendAction('go-forward');
 		}
