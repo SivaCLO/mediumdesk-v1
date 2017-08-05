@@ -83,6 +83,11 @@ ipc.on('open-file', () => {
 		);
 });
 
+ipc.on('open-in-browser', () => {
+	const url = window.location.href;
+	shell.openExternal(url);
+});
+
 document.documentElement.classList.add(process.platform === 'darwin' ? 'osx' : 'notosx');
 
 function openAvatarMenu() {

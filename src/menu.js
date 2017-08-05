@@ -234,6 +234,16 @@ const darwinTpl = [
 				click() {
 					sendAction('open-settings');
 				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Open in Browser',
+				accelerator: 'Cmd+8',
+				click() {
+					sendAction('open-in-browser')
+				}
 			}
 		]
 	},
@@ -405,6 +415,16 @@ const otherTpl = [
 				accelerator: 'Ctrl+7',
 				click() {
 					sendAction('open-settings');
+				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Open in Browser',
+				accelerator: 'Ctrl+8',
+				click() {
+					sendAction('open-in-browser')
 				}
 			},
 			{
