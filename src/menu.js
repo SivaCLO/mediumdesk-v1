@@ -71,6 +71,20 @@ const viewSubmenu = [
 			const win = BrowserWindow.getAllWindows()[0];
 			win.reload();
 		}
+	},
+	{
+		label: `Back`,
+		accelerator: `CmdOrCtrl+[`,
+		click() {
+			sendAction('go-back');
+		}
+	},
+	{
+		label: `Forward`,
+		accelerator: `CmdOrCtrl+]`,
+		click() {
+			sendAction('go-forward');
+		}
 	}
 ];
 
