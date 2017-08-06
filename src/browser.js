@@ -88,6 +88,14 @@ ipc.on('open-in-browser', () => {
 	shell.openExternal(url);
 });
 
+ipc.on('go-back', () => {
+	window.history.back();
+});
+
+ipc.on('go-forward', () => {
+	window.history.forward();
+});
+
 document.documentElement.classList.add(process.platform === 'darwin' ? 'osx' : 'notosx');
 
 function openAvatarMenu() {
