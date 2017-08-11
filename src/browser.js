@@ -4,6 +4,7 @@ const fs = require('fs');
 const ipc = electron.ipcRenderer;
 const BrowserWindow = electron.remote.BrowserWindow;
 const Common = require('./common');
+const settings = require('./settings');
 
 ipc.on('open-new', () => {
 	if (!clickAvatarMenuItem(0)) {
