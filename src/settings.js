@@ -21,9 +21,10 @@ const startPage = `
       </div>
     </div>
     <div class="u-flex0">
-      <select class="button list list--short list--choice">
-        <option value="Home" selected="">Home</option>
-        <option value="New">New Story</option>
+      <select class="button list list--short list--choice" onchange="saveSetting('start-page', this.value)">
+        <option value="home" ${store.get('start-page') === 'home' ? 'selected' : ''}>Home</option>
+        <option value="new" ${store.get('start-page') === 'new' ? 'selected' : ''}>New Story</option>
+        <option value="drafts" ${store.get('start-page') === 'drafts' ? 'selected' : ''}>Drafts</option>
       </select>
     </div>
   </li>`;
