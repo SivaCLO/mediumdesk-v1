@@ -1,4 +1,12 @@
 const ready = require('document-ready');
+const Store = require('electron-store');
+const store = new Store();
+
+global.saveSetting = function(setting, value) {
+  console.log(`Setting: ${setting}\n\nValue: ${value}`);
+  store.set(setting, value);
+}
+
 
 const header = '<header class="heading u-clearfix heading--borderedBottom" id="mediumdesk"><div class="u-clearfix"><div class="heading-content u-floatLeft"><span class="heading-title">MediumDesk</span></div></div></header>';
 
