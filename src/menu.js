@@ -415,6 +415,13 @@ const otherTpl = [
 				}
 			},
 			{
+				label: 'Login',
+				accelerator: 'Ctrl+8',
+				click() {
+					sendAction('open-login');
+				}
+			},
+			{
 				label: 'Quit',
 				accelerator: 'Ctrl+W',
 				click() {
