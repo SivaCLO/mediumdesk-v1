@@ -234,7 +234,14 @@ const darwinTpl = [
 				click() {
 					sendAction('open-settings');
 				}
-			}
+			},
+			{
+				label: 'Login',
+				accelerator: 'Cmd+8',
+				click() {
+					sendAction('open-login');
+				}
+			},
 		]
 	},
 	{
