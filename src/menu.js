@@ -71,6 +71,20 @@ const viewSubmenu = [
 			const win = BrowserWindow.getAllWindows()[0];
 			win.reload();
 		}
+	},
+	{
+		label: `Back`,
+		accelerator: `CmdOrCtrl+[`,
+		click() {
+			sendAction('go-back');
+		}
+	},
+	{
+		label: `Forward`,
+		accelerator: `CmdOrCtrl+]`,
+		click() {
+			sendAction('go-forward');
+		}
 	}
 ];
 
@@ -242,6 +256,16 @@ const darwinTpl = [
 					sendAction('open-login');
 				}
 			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Open in Browser',
+				accelerator: 'Cmd+9',
+				click() {
+					sendAction('open-in-browser')
+				}
+			}
 		]
 	},
 	{
@@ -419,6 +443,16 @@ const otherTpl = [
 				accelerator: 'Ctrl+8',
 				click() {
 					sendAction('open-login');
+				}
+			},
+			{
+				type: 'separator'
+			},
+			{
+				label: 'Open in Browser',
+				accelerator: 'Ctrl+9',
+				click() {
+					sendAction('open-in-browser')
 				}
 			},
 			{

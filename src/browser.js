@@ -5,6 +5,7 @@ const ipc = electron.ipcRenderer;
 const prompt = require('electron-prompt');
 const BrowserWindow = electron.remote.BrowserWindow;
 const Common = require('./common');
+const settings = require('./settings');
 
 ipc.on('open-new', () => {
 	if (!clickAvatarMenuItem(0)) {
@@ -101,6 +102,19 @@ ipc.on('open-file', () => {
 				}
 			}
 		);
+});
+
+ipc.on('open-in-browser', () => {
+	const url = window.location.href;
+	shell.openExternal(url);
+});
+
+ipc.on('go-back', () => {
+	window.history.back();
+});
+
+ipc.on('go-forward', () => {
+	window.history.forward();
 });
 
 document.documentElement.classList.add(process.platform === 'darwin' ? 'osx' : 'notosx');

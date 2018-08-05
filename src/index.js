@@ -4,7 +4,8 @@ const fs = require('fs');
 const electron = require('electron');
 const app = electron.app;
 const menu = require('./menu');
-const storage = require('./storage');
+const Store = require('electron-store');
+const storage = new Store();
 const navigate = require('./navigate');
 const tray = require('./tray');
 const UpdateHandler = require('./update');
@@ -55,8 +56,23 @@ function createMainWindow() {
 		}
 	});
 
-	win.loadURL(Common.MEDIUM_HOME);
+	let startPage = null;
+	switch(storage.get('start-page')) {
+		case 'home':
+			startPage = Common.MEDIUM_HOME;
+			break;
+		case 'new':
+			startPage = 'https://medium.com/new-story';
+			break;
+		case 'drafts':
+			startPage = 'https://medium.com/me/stories/drafts';
+			break;
+		default:
+			startPage = Common.MEDIUM_HOME;
+			break;
+	}
 
+	win.loadURL(startPage);
 	win.on('close', e => {
 		if (!isQuitting) {
 			e.preventDefault();
