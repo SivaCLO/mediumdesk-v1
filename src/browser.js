@@ -2,6 +2,7 @@
 const electron = require('electron');
 const fs = require('fs');
 const ipc = electron.ipcRenderer;
+const prompt = require('electron-prompt');
 const BrowserWindow = electron.remote.BrowserWindow;
 const Common = require('./common');
 const settings = require('./settings');
@@ -52,6 +53,25 @@ ipc.on('open-settings', () => {
 	if (!clickAvatarMenuItem(9)) {
 		window.location = 'https://medium.com/me/settings';
 	}
+});
+
+ipc.on('open-login', () => {
+	prompt({
+    title: 'Enter the Login URL Received in Email',
+    label: 'Auth URL:',
+    value: '',
+    inputAttrs: {
+			type: 'url',
+			required: true
+    },
+    type: 'input'
+	})
+	.then((r) => {
+		if (r && r.indexOf('https://medium.com/m/callback') >= 0) {
+			window.location = r;
+		}
+	})
+	.catch(console.error);
 });
 
 ipc.on('open-home', () => {

@@ -250,11 +250,18 @@ const darwinTpl = [
 				}
 			},
 			{
+				label: 'Login',
+				accelerator: 'Cmd+8',
+				click() {
+					sendAction('open-login');
+				}
+			},
+			{
 				type: 'separator'
 			},
 			{
 				label: 'Open in Browser',
-				accelerator: 'Cmd+8',
+				accelerator: 'Cmd+9',
 				click() {
 					sendAction('open-in-browser')
 				}
@@ -432,11 +439,18 @@ const otherTpl = [
 				}
 			},
 			{
+				label: 'Login',
+				accelerator: 'Ctrl+8',
+				click() {
+					sendAction('open-login');
+				}
+			},
+			{
 				type: 'separator'
 			},
 			{
 				label: 'Open in Browser',
-				accelerator: 'Ctrl+8',
+				accelerator: 'Ctrl+9',
 				click() {
 					sendAction('open-in-browser')
 				}
