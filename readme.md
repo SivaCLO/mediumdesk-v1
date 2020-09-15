@@ -1,3 +1,7 @@
+### MediumDesk is not actively maintained. Please checkout [Desk for Medium.com](http://thedesk.co) instead.
+
+---
+
 <img src="static/Icon.png" width="200">
 
 [![Github All Releases](https://img.shields.io/github/downloads/clodotai/mediumdesk/total.svg)](https://github.com/clodotai/mediumdesk)
